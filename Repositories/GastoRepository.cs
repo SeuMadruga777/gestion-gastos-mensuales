@@ -39,8 +39,18 @@ namespace GestionDeGastosMensuales.Repositories
         // Actualizar
         public void Actualizar(Gasto gasto)
         {
-            _context.Gastos.Update(gasto);
-            _context.SaveChanges();
+            var existente = _context.Gastos.Find(gasto.Id);
+            if (existente != null)
+            {
+                existente.Descripcion = gasto.Descripcion;
+                existente.Categoria = gasto.Categoria;
+                existente.Monto = gasto.Monto;
+                existente.Fecha = gasto.Fecha;
+                existente.EsFijo = gasto.EsFijo;
+                existente.Pagado = gasto.Pagado;
+
+                _context.SaveChanges();
+            }
         }
 
         // Eliminar

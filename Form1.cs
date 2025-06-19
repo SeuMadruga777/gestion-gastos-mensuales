@@ -107,5 +107,60 @@ namespace GestionDeGastosMensuales
             dgvGastos.DataSource = resultados;
 
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvGastos.CurrentRow != null)
+            {
+                int id = Convert.ToInt32(dgvGastos.CurrentRow.Cells["Id"].Value);
+
+                if (string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtCategoria.Text))
+                {
+                    MessageBox.Show("Debe ingresar una descripción y una categoría.");
+                    return;
+                }
+
+                if (!double.TryParse(txtMonto.Text, out double monto))
+                {
+                    MessageBox.Show("El monto ingresado no es válido.");
+                    return;
+                }
+
+                var gastoActualizado = new Gasto
+                {
+                    Id = id,
+                    Descripcion = txtDescripcion.Text,
+                    Categoria = txtCategoria.Text,
+                    Monto = monto,
+                    Fecha = dtpFecha.Value,
+                    EsFijo = chkEsFijo.Checked,
+                    Pagado = chkPagado.Checked
+                };
+
+                _repositorio.Actualizar(gastoActualizado);
+                MessageBox.Show("Gasto actualizado correctamente.");
+                LimpiarFormulario();
+                CargarGastosEnTabla();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un gasto para editar.");
+            }
+
+        }
+
+        private void dgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtDescripcion.Text = dgvGastos.CurrentRow.Cells["Descripcion"].Value.ToString();
+                txtCategoria.Text = dgvGastos.CurrentRow.Cells["Categoria"].Value.ToString();
+                txtMonto.Text = dgvGastos.CurrentRow.Cells["Monto"].Value.ToString();
+                dtpFecha.Value = Convert.ToDateTime(dgvGastos.CurrentRow.Cells["Fecha"].Value);
+                chkEsFijo.Checked = Convert.ToBoolean(dgvGastos.CurrentRow.Cells["EsFijo"].Value);
+                chkPagado.Checked = Convert.ToBoolean(dgvGastos.CurrentRow.Cells["Pagado"].Value);
+            }
+
+        }
     }
 }

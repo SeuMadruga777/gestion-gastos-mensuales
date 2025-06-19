@@ -45,6 +45,7 @@
             label5 = new Label();
             txtMonto = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            btnEditar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvGastos).BeginInit();
             SuspendLayout();
             // 
@@ -169,6 +170,7 @@
             dgvGastos.Name = "dgvGastos";
             dgvGastos.Size = new Size(679, 217);
             dgvGastos.TabIndex = 13;
+            dgvGastos.CellClick += dgvGastos_CellClick;
             // 
             // label5
             // 
@@ -186,11 +188,22 @@
             txtMonto.Size = new Size(100, 23);
             txtMonto.TabIndex = 15;
             // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(688, 276);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(95, 86);
+            btnEditar.TabIndex = 16;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEditar);
             Controls.Add(txtMonto);
             Controls.Add(label5);
             Controls.Add(dgvGastos);
@@ -233,5 +246,6 @@
         private Label label5;
         private TextBox txtMonto;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btnEditar;
     }
 }
