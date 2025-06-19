@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionDeGastosMensuales", "GestionDeGastosMensuales.csproj", "{1F472A5C-E0DF-493D-8467-446F6F2C8394}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F472A5C-E0DF-493D-8467-446F6F2C8394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F472A5C-E0DF-493D-8467-446F6F2C8394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F472A5C-E0DF-493D-8467-446F6F2C8394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F472A5C-E0DF-493D-8467-446F6F2C8394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4036927B-5A9F-4495-B40B-4BAD8305324E}
+	EndGlobalSection
+EndGlobal
